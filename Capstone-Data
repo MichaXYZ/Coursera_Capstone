@@ -30,6 +30,12 @@ Venues can be searched by category and geographical data (longitude/latitude) vi
 
   https://developer.foursquare.com/docs/api/venues/search
 
+Longitude and Latitude for (the center of ) communities will be derived from 2.1 above. 
+The demographics file above also contains the area in square-km's of a community. From that area the radius can be calculated. 
+A certain level of inacurracy has to be accepted: The search based on radius will draw an exact circle around the provided 
+longitude/latidude, while the actual community borders will be much more irregular. So, some areas might mistakenly in- or excluded.
+
+
 From their "category page", the id for "Fastfood Restaurants" can be retrieved:
 
   https://developer.foursquare.com/docs/resources/categories
@@ -37,3 +43,10 @@ From their "category page", the id for "Fastfood Restaurants" can be retrieved:
 For request made via API, results are provided as a json-file. Per request, a maximum of 50 venues are returned. This needs 
 to be considered when analyzing results. Any resulting number of venues above 49 is unreliable since a higher amount of results 
 just could have been capped by 50.
+
+2.3 Combined data
+Results from 2.1 and 2.2 will be joined based on longitude/latitude of the corresponding request to Foursquare. 
+Conseqently, a dataframe will be created that contains for each fastfood-venue the demographical data as described under 2.2.
+
+In a next step, data will be aggegated on Community-level. So, the number of fastfood restaurants  per community 
+(plus its demographics) is displayed. This information then will be analyzed regarding dependencies and patterns.
