@@ -1,0 +1,39 @@
+2. Data
+2.1 Demographical Data
+The "German Federal Office for Statistics" (DESTATIS) provide on their website statistics on many demographic aspects: 
+
+  https://www.destatis.de/EN/Home/_node.html
+
+Unfortunatly, most statistics show information on a geographically aggregated level only. Only few statistics allow a 
+drilldown down to the community-level (in German "Gemeinde").
+Among those more detailed reports, one could be identified that for each individual community lists:
+    - Community-ID and Community Name
+    - area in square-kilometers
+    - population
+    - population per square-kilometer
+    - Geographical longitude and latitude
+and other attibutes that can be omitted for this project.
+The report is current as of end 2018, and consequently should provide up to date information.
+Also, a high level of accuracy can be expected due to its official source.
+This is the link to the report in excel-format:
+
+  https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/Archiv/GVAuszugQ/AuszugGV4QAktuell.xlsx?__blob=publicationFile&v=3
+
+2.2 Fastfood Restaurants
+Foursquare Labs Inc. is a technology enteprise that provides information on many different kinds of venues, mostly related
+to food, but considering other places of interest as well. 
+Users of Foursquare's web-app can provide their feedback on venues at any time, as well as suggest new venues. Presumably, 
+this feedback does not provide a totally concise and accurate view  on a community's venues, but still should be acceptable, 
+also considering the lack of alternative free data sources.
+
+Venues can be searched by category and geographical data (longitude/latitude) via an API: 
+
+  https://developer.foursquare.com/docs/api/venues/search
+
+From their "category page", the id for "Fastfood Restaurants" can be retrieved:
+
+  https://developer.foursquare.com/docs/resources/categories
+
+For request made via API, results are provided as a json-file. Per request, a maximum of 50 venues are returned. This needs 
+to be considered when analyzing results. Any resulting number of venues above 49 is unreliable since a higher amount of results 
+just could have been capped by 50.
